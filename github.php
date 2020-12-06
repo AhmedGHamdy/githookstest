@@ -23,7 +23,7 @@ $LOCAL_REPO         = "{$/opt/tomcat7_addtest/webapps/Add-Pluses}/{$githookstest
 $REMOTE_REPO        = "git@github.com:AhmedGHamdy/githookstest.git";
 $BRANCH             = "main";
 
-if ( $_POST['payload'] ) {
+if ($_SERVER['HTTP_X_GITHUB_EVENT'] == 'push') {
   // Only respond to POST requests from Github
   
   if( file_exists($LOCAL_REPO) ) {
